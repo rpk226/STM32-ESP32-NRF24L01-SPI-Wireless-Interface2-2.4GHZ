@@ -95,24 +95,20 @@ Configure SPI1 in STM32CubeMX with the following settings:
 
 # Example Output
 
-## STM32 Transmitter Serial Output
+## Serial Output
 
+### STM32 TX
 ```text
 TX val = 0
 ```
 
-`TX val = 0` indicates successful packet transmission from STM32 to the NRF24L01 module.
+Indicates successful packet transmission.
 
----
-
-## ESP32 Receiver Serial Output
-
+### ESP32 RX
 ```text
-Received: From STM32
+Received: STM32 TX Packet
 ```
-
-This confirms successful wireless packet reception on the ESP32 through the NRF24L01 module.
-
+Indicates successful wireless packet reception.
 ---
 
 # Notes
@@ -127,18 +123,6 @@ This confirms successful wireless packet reception on the ESP32 through the NRF2
 
 ---
 
-# Future Improvements
-
-- Bidirectional Communication
-- ACK Payload Support
-- Dynamic Payload Length
-- Packet Loss Simulation
-- Noise Injection and BER Analysis
-- Sensor Data Transmission
-
----
-
----
 
 # References
 
