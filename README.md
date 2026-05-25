@@ -2,7 +2,8 @@
 
 This project demonstrates wireless TX-RX communication between an STM32 Nucleo-F446RE board and an ESP32 using the NRF24L01 2.4GHz transceiver module.
 
-The STM32 acts as the transmitter (TX) and the ESP32 acts as the receiver (RX).
+- STM32 Nucleo-F446RE acts as the **Transmitter (TX)**
+- ESP32 acts as the **Receiver (RX)**
 
 ---
 
@@ -25,9 +26,12 @@ STM32-ESP32-NRF24L01-SPI-Wireless-Interface/
 │   └── STM32CubeIDE project files
 │
 ├── ESP32_RX/
-│   └── PlatformIO / Arduino code
+│   └── PlatformIO / Arduino source files
 │
 └── README.md
+```
+
+---
 
 # NRF24L01 Pin Mapping
 
@@ -40,6 +44,8 @@ STM32-ESP32-NRF24L01-SPI-Wireless-Interface/
 | MOSI | PA7 | D11 | GPIO23 |
 | VCC | 3.3V | 3V3 | 3.3V |
 | GND | GND | GND | GND |
+
+---
 
 # STM32CubeMX (.ioc) Configuration
 
@@ -60,14 +66,94 @@ Configure SPI1 in STM32CubeMX with the following settings:
 | CRC Calculation | Disabled |
 | TI Mode | Disabled |
 
+---
 
-## Example Sample Output 
-### STM32 
-```
+## GPIO Configuration
+
+| STM32 Pin | Configuration | Purpose |
+|---|---|---|
+| PB0 | GPIO_Output | NRF24 CE |
+| PA4 | GPIO_Output | NRF24 CSN |
+| PA5 | SPI1_SCK | NRF24 SCK |
+| PA6 | SPI1_MISO | NRF24 MISO |
+| PA7 | SPI1_MOSI | NRF24 MOSI |
+
+---
+
+# NRF24 Configuration
+
+| Parameter | Value |
+|---|---|
+| Channel | 100 |
+| Data Rate | 1 Mbps |
+| Payload Size | 32 Bytes |
+| Address Width | 5 Bytes |
+| CRC | Enabled |
+| Auto ACK | Disabled |
+
+---
+
+# Example Output
+
+## STM32 Transmitter Serial Output
+
+```text
 TX val = 0
-``` 
-Denoting the SPI connection is established between the STM32 and NRF module 
-### ESP32
 ```
+
+`TX val = 0` indicates successful packet transmission from STM32 to the NRF24L01 module.
+
+---
+
+## ESP32 Receiver Serial Output
+
+```text
 Received: From STM32
 ```
+
+This confirms successful wireless packet reception on the ESP32 through the NRF24L01 module.
+
+---
+
+# Notes
+
+- CE must be pulsed HIGH briefly during transmission.
+- Use a 10µF capacitor across NRF24 VCC and GND for stable operation.
+- Both TX and RX must use:
+  - same channel
+  - same address
+  - same data rate
+  - same CRC settings
+
+---
+
+# Future Improvements
+
+- Bidirectional Communication
+- ACK Payload Support
+- Dynamic Payload Length
+- Packet Loss Simulation
+- Noise Injection and BER Analysis
+- Sensor Data Transmission
+
+---
+
+---
+
+# References
+
+This project uses the following NRF24L01 STM32 HAL library as a reference:
+
+- :contentReference[oaicite:0]{index=0}
+
+Example TX/RX implementation reference:
+
+- :contentReference[oaicite:1]{index=1}
+
+The library provides:
+- NRF24L01 SPI communication using STM32 HAL
+- TX/RX packet handling
+- CRC configuration
+- Dynamic payload support
+- Auto acknowledgment support
+- Pipe and channel configuration
