@@ -95,13 +95,10 @@ Configure SPI1 in STM32CubeMX with the following settings:
 
 # Example Output
 
-## Serial Output
-
-### STM32 TX
+###STM32 TX
 ```text
 TX val = 0
 ```
-
 Indicates successful packet transmission.
 
 ### ESP32 RX
@@ -128,11 +125,7 @@ Indicates successful wireless packet reception.
 
 This project uses the following NRF24L01 STM32 HAL library as a reference:
 
-- :contentReference[oaicite:0]{index=0}
-
-Example TX/RX implementation reference:
-
-- :contentReference[oaicite:1]{index=1}
+- [HardwareLevel STM32 HAL NRF24 Library](https://github.com/HardwareLevel/stm32_hal_nrf24_library/tree/main)
 
 The library provides:
 - NRF24L01 SPI communication using STM32 HAL
