@@ -1,0 +1,19 @@
+# STM32CubeIDE
+Debug/
+Release/
+.settings/
+*.launch
+
+# Object and dependency files
+*.o
+*.d
+
+# PlatformIO
+.pio/
+
+# VSCode
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
