@@ -80,7 +80,7 @@ Configure SPI1 in STM32CubeMX with the following settings:
 
 ---
 
-# NRF24 Configuration
+## NRF24 Configuration
 
 | Parameter | Value |
 |---|---|
@@ -96,8 +96,9 @@ Configure SPI1 in STM32CubeMX with the following settings:
 ## Example Output
 
 ### STM32 TX
+```
 TX status: 0 
-
+```
 ### ESP32 RX
 ```
 RX: 0
