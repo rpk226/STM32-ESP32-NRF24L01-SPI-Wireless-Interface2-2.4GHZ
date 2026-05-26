@@ -93,20 +93,22 @@ Configure SPI1 in STM32CubeMX with the following settings:
 
 ---
 
-# Example Output
+## Example Output
 
-###STM32 TX
-```text
-TX val = 0
-```
-Indicates successful packet transmission.
+### STM32 TX
+TX status: 0 
 
 ### ESP32 RX
-```text
-Received: STM32 TX Packet
-```
-Indicates successful wireless packet reception.
----
+RX: 0
+RX: 1
+
+### Packet Loss & Link Monitoring
+RX: 10
+RX: 11
+❌ Packet lost! Expected: 12 Got: 13
+⚠️ No packets received!
+
+Indicates successful transmission and reception of packets, along with real-time detection of pa
 
 # Notes
 

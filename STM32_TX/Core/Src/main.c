@@ -163,7 +163,13 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-      uint8_t dataT[32] = "STM32 TX packet";
+      //uint8_t dataT[32] = "STM32 TX packet";
+
+	  static uint32_t counter = 0;   // persistent counter
+	  uint8_t dataT[32] = {0};
+
+	  // Create payload with counter
+	  sprintf((char*)dataT, "%lu", counter++);
 
       ce_low();
 
@@ -177,7 +183,7 @@ int main(void)
 
       char tmp[50];
 
-      sprintf(tmp, "TX val = %d\r\n", val);
+      sprintf(tmp, "TX status = %d\r\n", val);
 
       HAL_UART_Transmit(&huart2,
                         (uint8_t*)tmp,
