@@ -99,16 +99,19 @@ Configure SPI1 in STM32CubeMX with the following settings:
 TX status: 0 
 
 ### ESP32 RX
+```
 RX: 0
 RX: 1
-
+```
 ### Packet Loss & Link Monitoring
+```
 RX: 10
 RX: 11
 ❌ Packet lost! Expected: 12 Got: 13
 ⚠️ No packets received!
+``` 
 
-Indicates successful transmission and reception of packets, along with real-time detection of pa
+Indicates successful transmission and reception of packets, along with real-time detection of packet
 
 # Notes
 
